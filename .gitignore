@@ -58,3 +58,4 @@ thumbs.db
 /.idea/csv-plugin.xml
 
 server-exe
+out/

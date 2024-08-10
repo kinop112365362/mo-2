@@ -23,9 +23,20 @@
     "typecheck:renderer": "vue-tsc --noEmit -p packages/renderer/tsconfig.json",
     "typecheck": "npm run typecheck:main && npm run typecheck:preload && npm run typecheck:renderer",
     "postinstall": "cross-env ELECTRON_RUN_AS_NODE=1 electron scripts/update-electron-vendors.js",
-    "format": "npx prettier --write \"**/*.{js,mjs,cjs,ts,mts,cts,vue,json}\""
+    "format": "npx prettier --write \"**/*.{js,mjs,cjs,ts,mts,cts,vue,json}\"",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "devDependencies": {
+    "@electron-forge/cli": "^7.4.0",
+    "@electron-forge/maker-deb": "^7.4.0",
+    "@electron-forge/maker-rpm": "^7.4.0",
+    "@electron-forge/maker-squirrel": "^7.4.0",
+    "@electron-forge/maker-zip": "^7.4.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.4.0",
+    "@electron-forge/plugin-fuses": "^7.4.0",
+    "@electron/fuses": "^1.8.0",
     "@eslint/eslintrc": "3.1.0",
     "@eslint/js": "9.9.0",
     "@types/node": "20.14.15",
@@ -33,7 +44,6 @@
     "@vue/test-utils": "2.4.6",
     "cross-env": "7.0.3",
     "electron": "31.3.1",
-    "electron-builder": "24.13.3",
     "eslint": "9.9.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-vue": "9.27.0",
@@ -51,6 +61,7 @@
     "vue-tsc": "2.0.29"
   },
   "dependencies": {
+    "electron-squirrel-startup": "^1.0.1",
     "electron-updater": "6.2.1"
   }
 }
