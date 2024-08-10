@@ -1,14 +1,9 @@
 {
-  "name": "vite-electron-builder",
-  "description": "Secure boilerplate for Electron app based on Vite",
+  "name": "mo-client",
+  "description": "client for Mo-2",
   "version": "2.0.0",
   "private": true,
   "type": "module",
-  "author": {
-    "email": "kozackunisoft@gmail.com",
-    "name": "Alex Kozack",
-    "url": "https://kozack.me"
-  },
   "main": "packages/main/dist/index.js",
   "scripts": {
     "build": "npm run build:main && npm run build:preload && npm run build:renderer",

@@ -1,6 +1,5 @@
 import {app, BrowserWindow} from 'electron';
 import {join} from 'node:path';
-import {fileURLToPath} from 'node:url';
 
 async function createWindow() {
   const browserWindow = new BrowserWindow({
@@ -33,11 +32,13 @@ async function createWindow() {
   /**
    * Load the main page of the main window.
    */
+  console.log(import.meta.env);
   if (import.meta.env.DEV && import.meta.env.VITE_DEV_SERVER_URL !== undefined) {
     /**
      * Load from the Vite dev server for development.
      */
-    await browserWindow.loadURL(import.meta.env.VITE_DEV_SERVER_URL);
+    // await browserWindow.loadURL(import.meta.env.VITE_DEV_SERVER_URL);
+    await browserWindow.loadURL('http://localhost:8080/login');
   } else {
     /**
      * Load from the local file system for production and test.
@@ -48,9 +49,10 @@ async function createWindow() {
      * @see https://github.com/nodejs/node/issues/12682
      * @see https://github.com/electron/electron/issues/6869
      */
-    await browserWindow.loadFile(
-      fileURLToPath(new URL('./../../renderer/dist/index.html', import.meta.url)),
-    );
+    // await browserWindow.loadFile(
+    //   fileURLToPath(new URL('./../../renderer/dist/index.html', import.meta.url)),
+    // );
+    await browserWindow.loadURL('https://www.mobenai.com.cn/login');
   }
 
   return browserWindow;
